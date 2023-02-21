@@ -1,0 +1,25 @@
+<h2>Product Details</h2>
+<div *ngIf="product">
+<h3>
+  <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+    {{product.name}}
+  </a>
+</h3>
+<div class="previewImg">
+  <img [src]="'../assets/nunchaku/nunchaku'+this.i+'_'+product.image+'.jpg'">
+</div>
+<span id="controls"><p (click)="slide(0)">&lt;</p><p (click)="slide(1)">&gt;</p></span>
+<p *ngIf="product.price">
+  Price: {{product.price}}&#8376;
+</p>
+<p *ngIf="product.rating">
+  Rating: {{product.rating}}/5
+</p>
+<p *ngIf="product.description">
+  Description: {{ product.description }}
+</p>
+<h3>
+  <a [href]="product.link">Buy on Kaspi</a>
+</h3>
+  <button type="button" (click)="addToCart(product)">Add to cart</button>
+</div>
