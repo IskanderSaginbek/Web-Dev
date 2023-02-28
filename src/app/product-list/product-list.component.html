@@ -1,22 +1,30 @@
 <div id = "main">
   <div>
-    <h1>Products</h1>
-    <h2>Be like water, my friend.</h2>
-    <p>Here (well, not actually here, but at Kaspi.kz you can buy these wonderful
-    nunchaku which is a type of ancient melee weapon from Far East. It requires
-    training to truly master these.</p>
+    <p id="back-arrow" [routerLink]="['/']">&larr;</p>
+    <h1>{{title}}</h1>
+    <h2>Here's the list of all our {{title.toLowerCase()}}
+      Product Details</h2>
+    <p>Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
+      accusantium doloremque laudantium, totam rem aperiam eaque ipsa,
+      quae ab illo inventore veritatis et quasi architecto beatae vitae
+      dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas
+      sit, aspernatur aut odit aut fugit, sed quia consequuntur magni
+      dolores eos, qui ratione voluptatem sequi nesciunt, neque porro
+      quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur
+      adipisci[ng] velit</p>
   </div>
   <div *ngFor="let product of products; let i = index;">
-
-    <h3>
-      <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+    <div [ngStyle]="{'display' : !product.isRemoved ? 'inline-block' : 'none'}" >
+    <h3 id="title">
+      <a [title]="product.name + ' details'" [routerLink]="['/products/', this.cat, product.id]">
         {{product.name}}
       </a>
+      <p (click)="remove(product.id)" id="x-button">X</p>
     </h3>
     <div class="previewImg">
-      <img [src]="'../assets/nunchaku/nunchaku'+i+'_'+product.image+'.jpg'">
+      <img [src]="'../assets/images/'+product.image[product.curimg]">
     </div>
-    <span id="controls"><p (click)="slide(0,i)">&lt;</p><p (click)="slide(1,i)">&gt;</p></span>
+    <span id="controls"><p (click)="slide(0,product.id)">&lt;</p><p (click)="slide(1,product.id)">&gt;</p></span>
     <p *ngIf="product.price">
       Price: {{product.price}}&#8376;
     </p>
@@ -26,15 +34,13 @@
     <p *ngIf="product.description">
       Description: {{ product.description }}
     </p>
-    <h3>
-      <a [href]="product.link">Buy</a>
-    </h3>
-    <button type="button" (click)="share(product.link)">
+    <button type="button" (click)="share()">
       Share via Telegram
     </button>
     <app-product-alerts
       [product]="product"
       (notify)="onNotify()">
     </app-product-alerts>
+  </div>
   </div>
 </div>
