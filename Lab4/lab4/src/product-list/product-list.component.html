@@ -1,0 +1,40 @@
+<div id = "main">
+  <div>
+    <h1>Products</h1>
+    <h2>Be like water, my friend.</h2>
+    <p>Here (well, not actually here, but at Kaspi.kz you can buy these wonderful
+    nunchaku which is a type of ancient melee weapon from Far East. It requires
+    training to truly master these.</p>
+  </div>
+  <div *ngFor="let product of products; let i = index;">
+
+    <h3>
+      <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
+        {{product.name}}
+      </a>
+    </h3>
+    <div class="previewImg">
+      <img [src]="'../assets/nunchaku/nunchaku'+i+'_'+product.image+'.jpg'">
+    </div>
+    <span id="controls"><p (click)="slide(0,i)">&lt;</p><p (click)="slide(1,i)">&gt;</p></span>
+    <p *ngIf="product.price">
+      Price: {{product.price}}&#8376;
+    </p>
+    <p *ngIf="product.rating">
+      Rating: {{product.rating}}/5
+    </p>
+    <p *ngIf="product.description">
+      Description: {{ product.description }}
+    </p>
+    <h3>
+      <a [href]="product.link">Buy</a>
+    </h3>
+    <button type="button" (click)="share(product.link)">
+      Share via Telegram
+    </button>
+    <app-product-alerts
+      [product]="product"
+      (notify)="onNotify()">
+    </app-product-alerts>
+  </div>
+</div>
