@@ -31,7 +31,7 @@ import { LinksComponent } from './links/links.component';
       {path : 'about', component: AboutComponent},
       {path : 'albums', component: AlbumsComponent},
       {path : 'albums/:albumId', component : AlbumDetailComponent},
-      {path : 'albums/:albumId/:photoId', component : AlbumPhotosComponent},
+      {path : 'albums/:albumId/photos/:photoId', component : AlbumPhotosComponent}, //photoId is always 0 cuz there's always 1 photo for each album
       {path : '', redirectTo : 'home', pathMatch : "full"},
     ]),
   ],

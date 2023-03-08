@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Album} from "../Album";
 import {ActivatedRoute} from "@angular/router";
 import {AlbumServiceService} from "../services/album-service.service";
-import {AlbumsComponent} from "../albums/albums.component";
 
 @Component({
   selector: 'app-album-detail',
@@ -19,7 +18,6 @@ export class AlbumDetailComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const albumIdFromRoute = Number(routeParams.get('albumId'));
 
-    // Find the product that correspond with the id provided in route.
     this.albumService.getAlbums().subscribe((albums : Album[]) => this.currentAlbum = albums.find(album => album.id === albumIdFromRoute));
 
   }

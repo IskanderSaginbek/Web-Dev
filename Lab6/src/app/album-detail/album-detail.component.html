@@ -9,8 +9,8 @@
   <h2>Album details</h2>
   <p>User Id: <b>{{currentAlbum.userId}}</b></p>
   <p>Album Id: <b>{{currentAlbum.id}}</b></p>
-  <p>Photos: <a>here</a></p>
-  <div id = "wrapper"><div>Title: </div><div><textarea id="inp" value={{currentAlbum.title}} #inp></textarea></div></div>
+  <a class="wrapper" [routerLink]="['/albums',currentAlbum.id,'photos',0]" *ngIf="currentAlbum.thumbnailUrl">Photos: <img src = "{{currentAlbum.thumbnailUrl}}"></a>
+  <div class = "wrapper"><div>Title: </div><div><textarea id="inp" value={{currentAlbum.title}} #inp></textarea></div></div>
   <button (click)="saveItem(currentAlbum,inp.value)">Save</button>
   <p class="x-btn" (click)="deleteItem()">x</p>
 </div>

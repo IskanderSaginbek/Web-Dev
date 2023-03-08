@@ -19,4 +19,8 @@ export class AlbumsComponent implements OnInit {
     this.albumService.deleteItem(id).subscribe();
   }
 
+  public addItem(userId : string, id : string, title : string, thumbnailUrl : string, url : string) {
+    this.albumService.addItem(+userId,+id,title,thumbnailUrl,url).subscribe();
+  }
+
 }

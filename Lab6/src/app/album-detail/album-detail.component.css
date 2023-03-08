@@ -7,8 +7,9 @@
   cursor: not-allowed;
 }
 
-#wrapper {
+.wrapper {
   display: flex;
+  margin: .5em 0;
 }
 div+div {
   padding: 0 .2em;
