@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family : sans-serif;
+}
+
+a {
+  text-decoration: none;
+  font-weight : 600;
+}
+
+.album {
+  position: relative;
+  border : black 1px solid;
+  padding: .5em;
+  cursor: pointer;
+}
+
+.album:hover {
+  background-color: #DDDDDD;
+}
+
+.album:active {
+  background-color: #AAAAAA;
+}
+
+.album-detailed {
+
+}

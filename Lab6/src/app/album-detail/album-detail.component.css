@@ -1,0 +1,15 @@
+.x-btn {
+  position : absolute;
+  right : 1em;
+  top: 0;
+  font-weight: 800;
+  font-size: 1.2em;
+  cursor: not-allowed;
+}
+
+#wrapper {
+  display: flex;
+}
+div+div {
+  padding: 0 .2em;
+}

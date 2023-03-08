@@ -1,0 +1,3 @@
+<h1>Albums</h1>
+<app-album-detail *ngFor="let album of albums" [album]="album" (deleteEvent)="deleteItem(album.id)"
+[routerLink]="['/albums',album.id]"></app-album-detail>
