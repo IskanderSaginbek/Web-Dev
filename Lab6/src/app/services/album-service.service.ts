@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {catchError, Observable, retry, tap} from "rxjs";
 import {Album} from "../Album";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {AlbumsComponent} from "../albums/albums.component";
@@ -13,7 +13,11 @@ export class AlbumServiceService {
   constructor(private http:HttpClient) { }
 
   public getAlbums() : Observable<Album[]> {
-    return this.http.get<Album[]>(this.apiUrl);
+    return this.http.get<Album[]>(this.apiUrl).pipe(
+      retry(3),
+      catchError(err => {throw "can't get details: "+ err}),
+      tap(() => {console.log("object received")})
+    );
   }
 
   public deleteItem(id : number): Observable<unknown> {

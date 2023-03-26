@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { CategoriesComponent } from './categories/categories.component';
+import {Button, ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CategoriesComponent } from './categories/categories.component';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    ButtonModule,
     RouterModule.forRoot([
       {path: '', component: CategoriesComponent},
       {path: 'products/:categoryId', component: ProductListComponent},

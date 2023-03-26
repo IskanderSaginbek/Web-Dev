@@ -12,7 +12,6 @@
       adipisci[ng] velit</p>
   </div>
   <div *ngFor="let cat of categories; let i = index;">
-
     <h3>
       <a [title]="cat.name + ' details'" [routerLink]="['/products', cat.id]">
         {{cat.name}}

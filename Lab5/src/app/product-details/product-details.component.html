@@ -19,7 +19,7 @@
 <p *ngIf="product.description">
   Description: {{ product.description }}
 </p>
-  <button type="button" (click)="addToCart(product)">Add to cart</button>
-  <button type="button" (click)="like()">Like</button>
+  <button pButton type="button" (click)="addToCart(product)">Add to cart</button>
+  <button pButton type="button" (click)="like()">Like</button>
   <p>Likes: {{this.product.likes}}</p>
 </div>
